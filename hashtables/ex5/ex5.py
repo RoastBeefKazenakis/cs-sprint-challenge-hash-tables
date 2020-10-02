@@ -10,8 +10,10 @@ def finder(files, queries):
     resultsCache = []
 
     for filepath in files:
+        #split up filepath at slashes "/"
         split_up = filepath.split("/")
         filename = split_up[-1]
+        
         if filename in filepaths:
             filepaths[filename].append(filepath)
         else:
