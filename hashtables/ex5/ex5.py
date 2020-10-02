@@ -6,9 +6,22 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    filepaths = {}
+    resultsCache = []
 
-    return result
+    for filepath in files:
+        split_up = filepath.split("/")
+        filename = split_up[-1]
+        if filename in filepaths:
+            filepaths[filename].append(filepath)
+        else:
+            filepaths[filename] = [filepath]
+        
+    for x in queries:
+        if x in filepaths:
+            resultsCache.extend(filepaths[x])
+
+    return resultsCache
 
 
 if __name__ == "__main__":
